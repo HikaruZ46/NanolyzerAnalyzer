@@ -24,7 +24,7 @@ class EventGroup() :
 
     
     def set_df(self, df: pd.DataFrame) -> None :
-        self.event_group_df = df
+        self.event_group_df = df.copy()
         self.event_group_df.loc[:,H.effective_baseline_pA] = np.abs(self.event_group_df[H.effective_baseline_pA])
         self.event_group_df.loc[:, H.average_fractional_blockade] = self.event_group_df[H.average_blockage_pA] / self.event_group_df[H.effective_baseline_pA]
         self.event_group_df.loc[:, H.max_fractional_blockade] = self.event_group_df[H.max_blockage_pA] / self.event_group_df[H.effective_baseline_pA]
